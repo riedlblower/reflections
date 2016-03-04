@@ -1,0 +1,37 @@
+Git and GitHub Reflections: Lesson 1
+--------------------------------------
+
+20/2/2016
+Lesson 1 Reflect: Using History for Efficiency
+How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+1. I could easily reintroduce old debug printouts to help in diagnosing a new issue.
+2. Being able to view a file's history would help me in seeing how a new program would be expected to evolve.
+
+21/2/2106
+Lesson 1 Reflect: Manual Commits
+What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
+Pro 1. Logically/mentally it can be easier to see what are the differences between each version, especially as each version comes with a comment saying what's new about this one.
+Con 1. I might forget to make a manual commit or leave it too long and so forget all the new items in the latest release.
+
+21/2/2016
+Lesson 1 Reflect: Multi-File Commits
+Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, like Google Docs, treat each file separately?
+1. Git is manual and so by saving all files together in one commit there is less chance a file might be overlooked and forgotten if they were all done one at a time.
+
+26/2/2016
+Lesson 1 Reflect: Using Git to View History
+How can  you use the commands git log and git diff to view the history of files?
+1. git log: in a respository I type 'git log game.js' and see the history (author, date and comment) of the file game.js along with git ids of each commit
+2. git diff: e.g. git diff 3884eab839af1e82c44267484cf2945a766081f3 3e42136a76cf78c6c421cd720427bf6337c2d623 (git ids extracted from git log <file>)
+
+26/2/2016
+Lesson 1 Reflect: Confidence from Version Control
+How might using version control make you more confident to make changes that could break something?
+1. I can easily go back to an older working version by checking out a previous version that didn't have this 'break'/bug
+2. I can make big changes and explore what is possible without worrying that I have difficulties getting the old system back running.
+
+27/2/2016
+Lesson 1 Reflect: How do you want to use git?
+Now that you have your workspace set up, what do you want to try using Git for?
+1. I want to use git for whatever project I require e.g. python script on see what % changes are required to even out funds in QLF policy.
+2. Storing my udacity coursework.
