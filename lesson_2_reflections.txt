@@ -1,0 +1,17 @@
+Git and GitHub Reflections: Lesson 2
+-------------------------------------
+
+28/2/2016
+Reflect: Initializing a Repository
+What happens when you initialize a repository? Why do you need to do it?
+Answer A: a .git/ directory is created
+Answer B: this makes the directory 'git' friendly for checking in, etc. 
+
+28/2/2016
+Reflect: Staging Area
+How is the staging area different from the working directory and the repository? What value do you think it offers?
+The staging area is a loading dock where I get to determine what changes get shipped away. The working directory contains the files and directories I'm currently using. The repository stores the metadata and object database of my project and it is what is copied when I clone a repository from another computer.
+With the staging area the result is that the working directory and what gets saved is now decoupled. As a result I can build up my commits whenever I want, meaning I have more flexibility and control.
+
+
+
