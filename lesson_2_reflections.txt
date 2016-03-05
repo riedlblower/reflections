@@ -13,5 +13,19 @@ How is the staging area different from the working directory and the repository?
 The staging area is a loading dock where I get to determine what changes get shipped away. The working directory contains the files and directories I'm currently using. The repository stores the metadata and object database of my project and it is what is copied when I clone a repository from another computer.
 With the staging area the result is that the working directory and what gets saved is now decoupled. As a result I can build up my commits whenever I want, meaning I have more flexibility and control.
 
+4/3/2016
+Reflect: Commit Size
+How can you use the staging area to make sure you have one commit per logical change?
+git status will tell me what files are in the staging area, about to be committed to the repository. From looking at these files I can decide to commit once one logical change is present.
 
+4/3/2016
+Reflect: When to Use Branches
+What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+Some situations include localisation of an application in different languages (e.g. Fr, It, Eng, etc); experimenting with a new feature or an existing feature using a different algorithm.
+Branches would help as the core would stay the same if we ever needed to restart again while progress on the main branch could continue on, oblivious to the branch work.
+The main branch can be the official production build while other branches can be prototypes.
 
+5/3/16
+Reflect: Visualizing with Diagrams
+How do the diagrams help you visualize the branch structure?
+Diagrams help in that 'a picture paints a thousand words'. At a glance the branch structure is described.
