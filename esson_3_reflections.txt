@@ -1,8 +1,0 @@
-Git and GitHub Reflections: Lesson 3
--------------------------------------
-
-6/3/2016
-Reflect: Using a remote repository
-When would you want to use a remote repository rather than keeping all your work local?
-If more there is more than one local repository (e.g. a number of contributors or a number of client machines pushing info)
-If the power is about to go or local machine is about to fry :-)
