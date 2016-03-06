@@ -6,3 +6,9 @@ Reflect: Using a remote repository
 When would you want to use a remote repository rather than keeping all your work local?
 If more there is more than one local repository (e.g. a number of contributors or a number of client machines pushing info)
 If the power is about to go or local machine is about to fry :-)
+
+6/3/2016
+Reflect: Manual vs. automatic pull
+Why might you want to always pull changes manually rather than having Git automatically stay up-to-date with your remote repository?
+I want to know what is on my local machine and manually pulling changes helps in this regard rather than changes appearing behind my back.
+Other people may push changes and I only want these after I inspect them.
