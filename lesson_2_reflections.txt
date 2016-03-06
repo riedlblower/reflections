@@ -36,3 +36,12 @@ What is the result of merging two branches together? Why do we represent it in t
 The commits of the second file are merged into the first file with the new file becoming the new head. 
 ?The result is one file containing what is originally in both files and secondly what new additions were in both files. What happens deletions?
 We represent it with ' git log --graph --oneline' as this shows the relevant parents.
+
+6/3/16
+Reflect: Automatic vs. Manual Merging
+What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+Pros	Overcomes issue with forgetting to manually commit as all changes are automatically committed with user control over conflicts		
+		Saves time as all merges are done in one command
+		Easy to undo if a problem arose.
+Cons	I have more control.
+		
