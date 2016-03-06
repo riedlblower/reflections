@@ -29,3 +29,10 @@ The main branch can be the official production build while other branches can be
 Reflect: Visualizing with Diagrams
 How do the diagrams help you visualize the branch structure?
 Diagrams help in that 'a picture paints a thousand words'. At a glance the branch structure is described.
+
+6/3/16
+Reflect: Merging Two Branches
+What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+The commits of the second file are merged into the first file with the new file becoming the new head. 
+?The result is one file containing what is originally in both files and secondly what new additions were in both files. What happens deletions?
+We represent it with ' git log --graph --oneline' as this shows the relevant parents.
