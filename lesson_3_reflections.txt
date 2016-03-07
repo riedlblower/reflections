@@ -12,3 +12,13 @@ Reflect: Manual vs. automatic pull
 Why might you want to always pull changes manually rather than having Git automatically stay up-to-date with your remote repository?
 I want to know what is on my local machine and manually pulling changes helps in this regard rather than changes appearing behind my back.
 Other people may push changes and I only want these after I inspect them.
+
+7/3/2016
+Reflect: Forks, Clones, and Branches
+Describe the differences between forks, clones, and branches. When would you use one instead of another?
+A clone is an exact copy as downloaded from a remote server to my local client. 
+A fork is a copy of a git hub repository. A fork is located on the git hub server.
+A branch is where changes are made on the local machine but the original stream is also kept.
+I would use a fork to create a copy of someone else's git hub repository at the very beginning where the result would end up in my own git hub account.
+I would perform a clone at the beginning after doing a fork
+I would use a branch when created a new stream of changes on my local machine after earlier forking and cloning the repository.
