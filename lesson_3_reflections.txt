@@ -22,3 +22,8 @@ A branch is where changes are made on the local machine but the original stream 
 I would use a fork to create a copy of someone else's git hub repository at the very beginning where the result would end up in my own git hub account.
 I would perform a clone at the beginning after doing a fork
 I would use a branch when created a new stream of changes on my local machine after earlier forking and cloning the repository.
+
+9/3/2016
+Reflect: Local copies of remote branches
+What is the benefit of having a copy of the last known state of the remote stored locally?
+The benefit is that when I merge I would be merging with the most recent changes others have made.
