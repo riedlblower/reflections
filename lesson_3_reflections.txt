@@ -33,3 +33,9 @@ Reflect: Collaboration using Git and GitHub
 How would you collaborate without using Git or GitHub? What would be easier, and what would be harder?
 I could send emails and attach my modified files
 GitHub is easier as it is more automated and the modifications are easier to see. Nothing is forgotton neither.
+
+13/3/2016
+Reflect: When to use a separate branch
+When would you want to make changes in a separate branch rather than directly in master? What benefits does each approach have?
+I would want to make changes to a separate branch for a prototype, special once-off, etc or something personal
+The benefit is that the master is left untouched and other can then download this and not have to worry about what I have been doing. 
