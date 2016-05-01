@@ -1,0 +1,305 @@
+Git commands
+------------
+Git is the version control tool that GitHub is built on
+Git is local
+GitHub is where we share and collaborate with other people
+
+git --version    --> git version 2.7.1.windows.2
+
+git init  --> initialise a repository e.g. in a directory with files type 'git init' and this prepares the directory for git by creating .git
+
+git status  --> shows what's changed since the last commit (runs without internet access i.e. doesn't seem remote updates)
+
+git log game.js   --> in a respository I type 'git log game.js' and see the history (author, date and comment) of the file game.js along with git ids of each commit (runs without internet access)
+git log --graph --oneline   --> display log containing only start of ID and it's comment (all on one line)
+git log --graph --oneline master coins   --> display the reduced log out for branches master and coins in single line format
+
+git checkout <id1>  --> e.g.  git checkout 71d52709ddc4066e7a79a1d0a412e43429a0cdeb
+git checkout coins   --> checkout the remote branch called coins and switch to this branch.
+git checkout -b new_branch_name   --> this is the same as 'git branch new_branch_name' followed by 'git checkout new_branch_name'
+	
+git branch     --> shows what branches are around and which is the one in use (for checking out, in, etc) as it has an asterisk.
+git branch easy-mode   --> create a branch called easy-mode
+git checkout easy-mode   --> make easy-mode the 'default' branch    <-- important for what file is being merged into what file e.g keep master or experiment
+git branch -d coins   --> delete the branch label called coins. Useful AFTER a merge.
+
+git merge master coins   --> merges coins into master and creates a merged version of the two branches
+
+git show <id>  --> e.g. git show 3884eab839af1e82c44267484cf2945a766081f3 show differences between this commit and its parent (merged changes ignored)
+-----------
+git diff <id1> <id2>   --> e.g. git diff 3884eab839af1e82c44267484cf2945a766081f3 3e42136a76cf78c6c421cd720427bf6337c2d623 (git ids extracted from git log <file>)
+git diff <id1> <id2>   --> <id1> is considered the original => lines starting with a '+' on git diff output are present in 2nd file but not in 1st file.
+
+git diff   --> no arguments => show changes between working directory and staging area. This is a good idea to do before adding a change to verify changes are going to be the right ones.
+git diff --staged  --> show changes between staging area and the most recent commit in the repository
+
+git diff --hard   --> discards any changes from the staging area and/or working area  (Be very careful as not possible to undo this, remember nothing has been committed here so nothing can be retrieved)
+-----------
+
+git add <file1>   --> add file1 into the staging area
+
+git commit   --> commit all files mentioned in the staging area over to the repository; no parameters required
+
+git clone https://github.com/udacity/asteroids.git --> clones/downloads an entire repository
+(after a clone the remote destinations is created as verified with 'git remote -v')
+(it is best to fork someone else's repository and then clone the fork from your own GitHub account) 
+
+cd /D   --> change to the D directory 
+
+git checkout master   --> ??
+
+??git reset --hard HEAD~    # throw away changes and revert to the last commit
+??git reset --soft HEAD~    # reset to the last commit
+git reset --hard origin/master # throw away changes and revert to the last commit
+
+[start]
+Merge a branch locally with master
+  753  git branch
+  754  git branch easy-mode
+  755  git checkout easy-mode
+  756  git merge easy-mode master    <-- result is a conflict error
+  757  npp game.js    <-- npp is notepad++, a text editor
+  758  git status
+  759  git add game.js
+  760  git status
+  761  git commit
+  762  git log -n 1
+[end]
+-----------
+[start]
+	git remote
+	git remote add origin https:/.....   as found on github
+	git remote
+	git remote -v      shows url for fetching and pushing (-v verbose)
+	git push origin master      git push <destination repo> <local repo, note master branch in this case>
+[end]
+
+	git pull origin master     (origin is on the remote)
+	git pull origin master = 'git fetch origin' followed by 'git merge master origin/master'
+	git log origin/master   --> show log for local copy of what was downloaded from github (might be out of date)
+	git status    -->  indicates whether local commit are in synch with what was downloaded from github
+	
+	git fetch updates local copy of remote branch while leaving local version alone; use 'git log origin/master' or 'git diff origin/master master' then. this is different to git pull which seems to involve a merge too.
+-----------
+??git config --global core.editor "'C:/Program\ Files\ \(x86\)/Notepad++/notepad++.exe' -n -w"     -n means open in a new window, -w means git will wait until notepad++ closed before trying to continue
+???git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -n -w"
+git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+
+git config --global push.default upstream
+git config --global merge.conflictstyle diff3
+git config user.name  --> how to show username
+git config user.email  --> how to show email
+git config --list   --> how to show heaps of stuff
+git config --global user.name "Michael Sexton"   --> How to change your Git username
+git config --global user.email [your email address here]   --> How to change your Git email address
+cat  ~/.gitconfig   --> Finally, you can also see your password by viewing the Git config file in your HOME directory:
+-----------
+[start]
+  787  git config --global credential.helper wincred
+  788  cat config
+  793  git config --global user.name "...."
+  794  git config --global user.email "...@.....com"
+  795  cat .gitconfig
+	[credential]
+        helper = wincred
+	[user]
+        name = ....
+        email = ....@....com
+[end]
+----------------
+
+Note that syncing between local repository and github doesn't happen automatically
+push and pull are the operations to/from github (can't clone things onto github)
+communication between local repo and github is at level of commit history
+
+Note forking can only occur on GitHub (e.g. between accounts)
+-----------------
+make changes e.g. npp <file1>
+git diff
+git add <file1>
+git commit
+-----------------
+Explanation of various pieces
+git add                 --> local staging area only is changed
+git commit              --> local master branch only is changed
+git pull origin master  --> local working dir, local staging area & local master branch are changed
+git push origin master  --> remote github master branch only is changed
+merge alt pull request  --> remote github master branch only is changed
+
+-----------------
+
+Push branch up to repository twice
+  507  git branch                     --> see existing branches on local machine
+  508  git branch different-oil       --> create a branch call different-oil
+  509  git branch                     --> confirm the branch differnt-oil is now in existance
+  511  git checkout different-oil     --> switch to this branch
+  515  npp cake-recipe.txt            --> make changes to file
+  516  git add cake-recipe.txt        --> add file to staging area
+  517  git commit                     --> commit file into local repository
+  519  git push origin different-oil  --> push file into remote repository  (note use of different-oil branch here instead of master)
+  Viewing repository indicates that there are typos that need fixing
+  522  npp cake-recipe.txt            --> fix typo in cake-recipe.txt
+  523  npp chili-recipe.txt           --> fix typo in chili-recipe.txt
+  524  git status                     --> see two files are modified
+  525  git add cake-recipe.txt        --> add cake-recipe.txt to staging area
+  526  git add chili-recipe.txt       --> add chili-recipe.txt to staging area
+  527  git commit                     --> commit the changes to local repository
+  528  git push origin different-oil  --> push local repository up into git hub onto the different-oil branch
+-----------------
+
+Push merged branch to repository
+  528  cd recipes/                        --> go to recipes directory 
+  529  git checkout master                --> checkout the master (switch to the master branch)
+  530  git pull origin master             --> pull the master branch from the remote repository and update local master
+  532  git checkout different-oil         --> switch to different-oil branch
+  533  git merge master different-oil     --> attempt to merge different-oil branch into local master branch
+  534  npp cake-recipe.txt                --> edit the file that 'merge' updated mentioning the differences .
+  535  git status                         --> show status
+  536  git add cake-recipe.txt            --> add file to staging area
+  537  git commit                         --> complete the merge (text file comes with merge comments already written in)
+  538  git log                            --> show log, including logs of what was pulled from repository earlier
+  540  git push origin different-oil      --> push different-oil branch up to the remote repository (note master not involved here)
+  Need to perform merge pull request then on GitHub server by pressing the green button in different-oil branch.
+-----------------
+
+Useful for updating master on local machine after merging different-oil branch on remote into master on remote
+  542  git checkout master          --> switch to local master (...Your branch is up-to-date with 'origin/master'...)
+  543  git log                      --> see log  (including changes submitted by others but not my remote merged branch)
+  544  git checkout different-oil   --> switch to local different-oil 
+  545  git log                      --> see log (including changes I recently merged)
+  549  git checkout master          --> switch to master 
+  550  git pull                     --> pull changes down to local master from remote server
+  551  git log -n 1                 --> see last log  (...Merge pull request #2 from rie..er/different-oil...Different oil...)
+-----------------
+
+ git remote add upstream https://github.com/udacity/create-your-own-adventure.git    - keep a way to get the remote master that people collaborate on (this is different to my branch of the master)
+  521  git remote add upstream https://github.com/udacity/create-your-own-adventure.git   <-- update ./.git/config to now contain remote location for upstream
+  523  cd .git
+  524  cat config
+  525   cd ..
+  526  git pull upstream master
+  527  git log
+  528  git log --oneline
+  529  git log
+  531  git branch
+  532  git checkout storyChangesMS
+  533  git merge master storyChangesMS
+  534  git status
+  535  git push origin storyChangesMS
+  536  git checkout master
+  537  git push origin master
+  538  git push
+
+-----------------
+
+  409  cd create-your-own-adventure/
+  410  git remote -v
+  411  ls -l
+  412  git branch
+  413  git branch storyChangesMS
+  414  git branch
+  415  git checkout storyChangesMS
+  416  cd english
+  417  ls
+  418  ls -l
+  419  cd zork
+  420  ls
+  421  cat zork.md
+  422  npp zork
+  423  ls
+  424  npp zork.md
+  425  git status
+  426  cat zork.md
+  427  git add zork.md
+  428  git commit
+  429  git push origin storyChangesMS
+  430  pwd
+  431  cd ../..
+  432  git checkout master
+  433  git log
+  434  git branch
+  435  git checkout storyChangesMS
+  436  git log
+  437  git checkout master
+  438  git pull
+  439  git log
+  440  cd english
+  441  cd zork/
+  442  git log
+  443  git pull
+  444  git log -n 1
+  445  git pull
+  446  git status
+  447  npp zork.md
+  448  git pull origin master
+  449  git branch
+  450  git branch storyChangesMS
+  451  git checkout storyChangesMS
+  452  git push origin storyChangesMS
+  453  git checkout master
+  454  git pull
+  455  git log -n 1
+  456  exit
+  457  cd D/
+  458  cd /D
+  459  cd git
+  460  ls
+  461  git status
+  462  cd create-your-own-adventure/
+  463  git status
+  464  git pull
+  465  git branch
+  466  ls -al
+  467  cd .git
+  468  ls
+  469  cat config
+  470  git pull upstream master
+  471  cd ..
+  472  history
+  473   cd .git
+  474  ls
+  475  cat config
+  476  cd ..
+
+  Attempts at updating local master and storyChangesMS branches.
+  555  git pull origin storyChangesMS
+  556  git push origin storyChangesMS
+  559  git checkout master
+  560  git pull origin master
+  561  git push origin master
+========================================
+
+Creating a new repository and adding files (might have been easier create README on remote machine only as no merging issue then)
+	   git init    <<-- while in local directory containing relevant files
+  515  git add README.md
+  516  git add ud777_notes.txt
+  518  git commit
+  519  git status
+  go to GitHub and create relevant repository and record name
+  532  git remote add origin https://github.com/riedlblower/ud777-writing-READMEs.git
+  533  git remote
+  534  git remote -v
+  535  git push origin master
+  538  git pull origin master    <<--- might be necessary for synchronisation (bring down default README.md from remote github repository)
+  540  npp README.md
+  541  git status
+  542  git commit
+  543  git add README.md
+  544  git commit
+  545  git status
+  546  git push origin master
+
+========================================
+
+remove a file from local directory and then from remote git hub server
+
+  538  git rm mp4-media.py
+  539  git commit -m "remove mp4-media.py"
+  540  git push origin master
+
+========================================
+
+
+
+
+
