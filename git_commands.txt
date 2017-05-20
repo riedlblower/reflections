@@ -299,7 +299,33 @@ remove a file from local directory and then from remote git hub server
 
 ========================================
 
+Creating a new repository and adding files
+[First on git create the repository, record the path, create a README too]
 
+  513   cd /d
+  514  pwd
+  515  ls
+  516  cd git
+  517  ls
+  518  cd ud804-javascript-basics/
+  519  ls
+  520  git init
+  521  git remote add origin https://github.com/riedlblower/ud804-javascript-basics.git  <<-- taken from github.com
+  522  git remote
+  523  git remote -v
+  524  git pull origin master         <<-- this also brings down 'readme' file onto local machine.
+  525  ls
+  526  git add *
+  527  git status
+  528  git commit
+  529  git add JS-Challenge-Problems.txt
+  530  git add JS-L1-course_notes_taken.txt
+  531  git add JS-L2-course_notes_taken.txt
+  532  git add JS-L3-course_notes_taken.txt
+  533  git status
+  534  git status
+  535  git commit
+  536   git push origin master     <<-- this is very important !!!
+  537  git status
 
-
-
+========================================
